@@ -1,0 +1,69 @@
+sde-website/
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── dance-styles/
+│   │   │   ├── testimonials/
+│   │   │   └── icons/
+│   │   ├── videos/
+│   │   │   └── tutorials/
+│   │   └── documents/
+│   │       └── guides/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Header/
+│   │   │   ├── Footer/
+│   │   │   ├── Navigation/
+│   │   │   └── SEO/
+│   │   ├── dance-styles/
+│   │   │   ├── StyleOverview/
+│   │   │   ├── TutorialPlayer/
+│   │   │   └── PracticeGuide/
+│   │   ├── events/
+│   │   │   ├── Schedule/
+│   │   │   ├── LocationMap/
+│   │   │   └── RulesGuide/
+│   │   ├── learning/
+│   │   │   ├── SkillPathway/
+│   │   │   └── ProgressTracker/
+│   │   └── community/
+│   │       ├── Forum/
+│   │       ├── TestimonialCard/
+│   │       └── Newsletter/
+│   ├── pages/
+│   │   ├── home/
+│   │   ├── dance-styles/
+│   │   │   ├── country-swing/
+│   │   │   ├── line-dancing/
+│   │   │   ├── west-coast-swing/
+│   │   │   ├── salsa/
+│   │   │   ├── bachata/
+│   │   │   ├── merengue/
+│   │   │   ├── waltz/
+│   │   │   ├── cha-cha/
+│   │   │   ├── foxtrot/
+│   │   │   ├── rumba/
+│   │   │   ├── east-coast-swing/
+│   │   │   └── two-step/
+│   │   ├── events/
+│   │   ├── learning-pathways/
+│   │   └── community/
+│   ├── styles/
+│   │   ├── global/
+│   │   ├── components/
+│   │   └── pages/
+│   ├── utils/
+│   │   ├── api/
+│   │   ├── helpers/
+│   │   └── constants/
+│   └── context/
+├── public/
+│   ├── favicon/
+│   └── static/
+├── config/
+│   ├── seo.config.js
+│   └── site.config.js
+└── tests/
+    ├── unit/
+    ├── integration/
+    └── e2e/

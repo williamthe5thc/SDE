@@ -58,3 +58,15 @@ coverage/
 
 # Misc
 .git/
+public/.DS_Store
+src/.DS_Store
+src/assets/.DS_Store
+src/components/.DS_Store
+src/components/common/.DS_Store
+src/components/community/.DS_Store
+src/components/dance-styles/.DS_Store
+src/components/events/.DS_Store
+src/components/learning/.DS_Store
+src/pages/.DS_Store
+src/pages/dance-styles/.DS_Store
+tests/.DS_Store

@@ -22,6 +22,8 @@ import {
   HandMetal,
   Footprints
 } from 'lucide-react';
+import { RhythmDisplayProps, DanceData, Level, Tutorial } from '@/types/dance';
+import {  } from '@/types/dance';
 
 const westCoastSwingData = {
   title: "West Coast Swing",
@@ -144,17 +146,15 @@ const westCoastSwingData = {
 };
 
 // Component for showing rhythm patterns visually
-const RhythmDisplay = ({ pattern }) => {
+const RhythmDisplay: React.FC<RhythmDisplayProps> = ({ pattern }) => {
   const beats = pattern.split(' ');
+  
   return (
     <div className="flex gap-2 items-center">
-      {beats.map((beat, index) => (
-        <div 
-          key={index}
-          className={`h-8 flex items-center justify-center ${
-            beat.includes('&') ? 'w-6 bg-blue-200' : 'w-8 bg-blue-400'
-          } rounded text-sm font-mono`}
-        >
+      {beats.map((beat: string, index: number) => (
+        <div key={index} className={`h-8 flex items-center justify-center ${
+          beat.includes('&') ? 'w-6 bg-blue-200' : 'w-8 bg-blue-400'
+        } rounded text-sm font-mono`}>
           {beat}
         </div>
       ))}
@@ -163,7 +163,7 @@ const RhythmDisplay = ({ pattern }) => {
 };
 
 const WestCoastSwingPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   return (
     <div className="min-h-screen bg-gray-50">

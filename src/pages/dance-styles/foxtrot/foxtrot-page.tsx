@@ -23,6 +23,7 @@ import {
   Timer,
   ArrowRight
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const foxtrotData = {
   title: "Foxtrot",
@@ -99,7 +100,7 @@ const foxtrotData = {
 };
 
 const FoxtrotPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   // Custom timing visualization component
   const RhythmDisplay = () => (

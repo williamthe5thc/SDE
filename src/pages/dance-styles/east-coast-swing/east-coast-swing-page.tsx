@@ -23,6 +23,7 @@ import {
   ArrowLeft,
   RotateCcw
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const eastCoastSwingData = {
   title: "East Coast Swing",
@@ -100,7 +101,7 @@ const eastCoastSwingData = {
 };
 
 const EastCoastSwingPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   // Custom rhythm visualization component
   const RhythmDisplay = () => (

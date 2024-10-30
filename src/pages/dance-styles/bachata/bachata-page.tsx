@@ -22,8 +22,10 @@ import {
   RotateCcw,
   Footprints,
   Heart,
-  Waves
+  Waves,
+  User
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const bachataData = {
   title: "Bachata",
@@ -221,7 +223,8 @@ const bachataData = {
 };
 
 // Rhythm Pattern Visual Component
-const RhythmPattern = ({ pattern }) => {
+const RhythmPattern: React.FC<{ pattern: string }> = ({ pattern }) => {
+
   const beats = pattern.split('-');
   return (
     <div className="flex gap-2 items-center my-4">
@@ -240,7 +243,7 @@ const RhythmPattern = ({ pattern }) => {
 };
 
 const BachataPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -428,12 +431,6 @@ const BachataPage = () => {
                 <Card key={index}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Users className
-                      
-                      
-                      
-                      
-                      
                       <Users className="w-5 h-5" />
                       {fundamental.title}
                     </CardTitle>

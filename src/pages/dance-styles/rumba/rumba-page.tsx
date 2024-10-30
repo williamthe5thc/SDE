@@ -23,6 +23,7 @@ import {
   Timer,
   Heart
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const rumbaData = {
   title: "Rumba",
@@ -100,7 +101,7 @@ const rumbaData = {
 };
 
 const RumbaPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   // Custom timing visualization component
   const RhythmDisplay = () => (

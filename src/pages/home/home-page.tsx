@@ -1,104 +1,67 @@
+// src/pages/home/home-page.tsx
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Calendar, Clock, MapPin, ArrowRight } from 'lucide-react';
+import { SEO } from '@/components/common/SEO';
+import { StyleOverview } from '@/components/dance-styles/StyleOverview';
+import { useGlobalContext } from '@/context/GlobalContext';
 
 const HomePage = () => {
-  const danceStyles = [
-    "Country Swing", "Line Dancing", "West Coast Swing", "Salsa",
-    "Bachata", "Merengue", "Waltz", "Cha-Cha", "Foxtrot",
-    "Rumba", "East Coast Swing", "Two-Step"
-  ];
+  const { state } = useGlobalContext();
+
+  // Sample data for StyleOverview
+  const sampleDanceStyle = {
+    history: {
+      origin: "Originated in the 1920s ballrooms of New York",
+      evolution: "Evolved from traditional ballroom dance styles",
+      significance: "Became one of the most popular social dances in America"
+    },
+    basicSteps: [
+      {
+        name: "Basic Step",
+        description: "The fundamental 8-count pattern",
+        keyPoints: ["Start with feet together", "Step back on count 1", "Return on count 5"]
+      }
+    ],
+    commonMistakes: [
+      "Looking at feet too much",
+      "Rushing the tempo",
+      "Poor posture"
+    ]
+  };
+
+  
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Welcome to Social Dance Effect"
+        description="Learn social dancing with our comprehensive guides and community"
+      />
+      
       {/* Hero Section */}
-      <section className="relative bg-blue-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">The Social Dance Effect</h1>
-          <p className="text-xl mb-8">
-            Join our vibrant community of dancers in the Salt Lake Valley.
-            Free weekly social dancing for all ages and skill levels!
+      <section className="bg-white py-12 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Welcome to Social Dance Effect
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Your journey to becoming a confident social dancer starts here
           </p>
-          <div className="flex gap-4">
-            <Button className="bg-white text-blue-900 hover:bg-blue-50">
-              Join Our Classes
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-blue-800">
-              View Schedule
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Quick Info Cards */}
-      <section className="container mx-auto px-4 -mt-10">
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="shadow-lg">
-            <CardContent className="p-6">
-              <Clock className="w-8 h-8 mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2">Weekly Schedule</h3>
-              <p>Every Tuesday Evening</p>
-              <p>Lessons: 7:30 PM - 8:30 PM</p>
-              <p>Social Dancing: 8:30 PM - 10:00 PM</p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-lg">
-            <CardContent className="p-6">
-              <MapPin className="w-8 h-8 mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2">Location</h3>
-              <p>Midvale, Utah</p>
-              <p className="text-sm text-gray-600">
-                Check our social media for weekly location updates
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-lg">
-            <CardContent className="p-6">
-              <Calendar className="w-8 h-8 mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2">Free Entry</h3>
-              <p>Open to all ages</p>
-              <p>Perfect for 20s & 30s</p>
-              <p>No partner needed</p>
-            </CardContent>
-          </Card>
+      {/* Dance Style Overview Section */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Dance Style</h2>
+          <StyleOverview 
+            history={sampleDanceStyle.history}
+            basicSteps={sampleDanceStyle.basicSteps}
+            commonMistakes={sampleDanceStyle.commonMistakes}
+          />
         </div>
       </section>
 
-      {/* Dance Styles Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Explore Our Dance Styles
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {danceStyles.map((style) => (
-            <Card key={style} className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{style}</h3>
-                <Button variant="ghost" className="text-blue-600 p-0 hover:text-blue-800">
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-blue-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Dancing?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join us this Tuesday for a fun-filled evening of dancing and community.
-            No experience necessary!
-          </p>
-          <Button className="bg-blue-600 text-white hover:bg-blue-700">
-            Get Started Today
-          </Button>
-        </div>
-      </section>
+      
     </div>
   );
 };

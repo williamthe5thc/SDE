@@ -26,6 +26,7 @@ import {
   ArrowUp,
   ArrowDown
 } from 'lucide-react';
+import {FormationDisplayProps, DanceData, Level, Tutorial } from '@/types/dance';
 
 const lineDancingData = {
   title: "Line Dancing",
@@ -126,26 +127,21 @@ const lineDancingData = {
 };
 
 const LineDancingPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
-  const FormationDisplay = ({ pattern }) => (
-    <div className="grid gap-2">
-      {pattern.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center gap-2">
-          {row.map((cell, cellIndex) => (
-            <div 
-              key={cellIndex}
-              className={`w-8 h-8 rounded-full ${
-                cell ? 'bg-blue-600' : 'bg-gray-200'
-              } flex items-center justify-center`}
-            >
-              {cell ? <Users className="w-4 h-4 text-white" /> : null}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
+  const FormationDisplay: React.FC<FormationDisplayProps> = ({ pattern }) => (
+  <div className="grid gap-2">
+    {pattern.map((row: number[], rowIndex: number) => (
+      <div key={rowIndex} className="flex justify-center gap-2">
+        {row.map((cell: number, cellIndex: number) => (
+          <div key={cellIndex} className={`w-8 h-8 rounded-full ${cell ? 'bg-blue-600' : 'bg-gray-200'}`}>
+            {cell ? <Users className="w-4 h-4 text-white" /> : null}
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
 
   return (
     <div className="min-h-screen bg-gray-50">

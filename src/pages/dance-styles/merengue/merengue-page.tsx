@@ -24,6 +24,7 @@ import {
   Heart,
   Waves
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const merengueData = {
   title: "Merengue",
@@ -216,15 +217,15 @@ const merengueData = {
   }
 };
 
-// Rhythm Pattern Visual Component
-const RhythmDisplay = ({ counts }) => {
+interface RhythmDisplayProps {
+  counts: string;
+}
+
+const RhythmDisplay: React.FC<RhythmDisplayProps> = ({ counts }) => {
   return (
-    <div className="flex gap-2 items-center my-4">
-      {counts.split(', ').map((count, index) => (
-        <div 
-          key={index}
-          className="h-8 w-8 flex items-center justify-center bg-orange-400 rounded text-white font-mono"
-        >
+    <div className="flex gap-2 items-center">
+      {counts.split(', ').map((count: string, index: number) => (
+        <div key={index} className={`h-8 w-8 flex items-center justify-center bg-orange-400 rounded text-white font-mono`}>
           {count}
         </div>
       ))}
@@ -233,7 +234,7 @@ const RhythmDisplay = ({ counts }) => {
 };
 
 const MerenguePage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -432,9 +433,8 @@ const MerenguePage = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {merengueData.music.rhythm
-                    
-                    {merengueData.music.rhythm.characteristics.map((char, index) => (
+                   {merengueData.music.rhythm.characteristics?.map((char, index) => (
+
                       <li key={index} className="flex items-center gap-2">
                         <Music className="w-4 h-4 text-orange-600" />
                         {char}

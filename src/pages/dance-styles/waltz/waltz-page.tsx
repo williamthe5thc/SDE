@@ -24,6 +24,7 @@ import {
   Heart,
   Move3d
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const waltzData = {
   title: "Waltz",
@@ -249,7 +250,7 @@ const WaltzTiming = ({ measures = 2 }) => {
 };
 
 const WaltzPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -349,7 +350,7 @@ const WaltzPage = () => {
                   <ul className="space-y-2 mt-4">
                     {waltzData.fundamentals.timing.keyPoints.map((point, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full" />
+                        <div className="w-2 h-2 bg-indigo-600 rounded-full"></div>
                         {point}
                       </li>
                     ))}
@@ -368,11 +369,11 @@ const WaltzPage = () => {
                 <CardContent>
                   <ul className="space-y-2">
                     {waltzData.fundamentals.frame.elements.map((element, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full" />
-                        {element}
-                      </li>
-                    ))}
+  <li key={index} className="flex items-center gap-2">
+    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full" />
+    {element}
+  </li>
+))}
                   </ul>
                 </CardContent>
               </Card>
@@ -420,13 +421,11 @@ const WaltzPage = () => {
                             <h4 className="font-semibold mb-2">Lead Steps</h4>
                             <ul className="space-y-2">
                               {pattern.leadSteps.map((step, stepIndex) => (
-                                <li key={stepIndex} className="flex items-center gap-2">
-                                  <div className="w-1.5 h-1.5 bg-indigo
-                                  
-                                  <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full" />
-                                  {step}
-                                </li>
-                              ))}
+  <li key={stepIndex} className="flex items-center gap-2">
+    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full" />
+    {step}
+  </li>
+))}
                             </ul>
                           </div>
                           <div>

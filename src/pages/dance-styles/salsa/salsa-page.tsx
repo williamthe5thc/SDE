@@ -23,6 +23,7 @@ import {
   Footprints,
   Heart
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const salsaData = {
   title: "Salsa",
@@ -204,7 +205,8 @@ const salsaData = {
 };
 
 // Timing Pattern Visual Component
-const TimingPattern = ({ pattern }) => {
+const TimingPattern: React.FC<{ pattern: string }> = ({ pattern }) => {
+
   const beats = pattern.split('-');
   return (
     <div className="flex gap-2 items-center my-4">
@@ -223,7 +225,7 @@ const TimingPattern = ({ pattern }) => {
 };
 
 const SalsaPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   return (
     <div className="min-h-screen bg-gray-50">

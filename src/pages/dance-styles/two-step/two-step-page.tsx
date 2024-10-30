@@ -18,11 +18,12 @@ import {
   Timer,
   Music,
   Users,
-  Boot,
+  Footprints,
   ArrowRight,
   ArrowUpRight,
   CircleDot
 } from 'lucide-react';
+import { DanceData, Level, Tutorial } from '@/types/dance';
 
 const twoStepData = {
   title: "Two-Step",
@@ -101,7 +102,7 @@ const twoStepData = {
 };
 
 const TwoStepPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
 
   // Custom rhythm visualization component
   const RhythmDisplay = () => (
@@ -293,7 +294,7 @@ const TwoStepPage = () => {
                 <ul className="space-y-4">
                   {twoStepData.partnerTips.map((tip, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <Boot className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <Footprints className="w-5 h-5 text-green-600 flex-shrink-0" />
                       <span className="text-gray-600">{tip}</span>
                     </li>
                   ))}

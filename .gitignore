@@ -57,4 +57,4 @@ coverage/
 .vercel/
 
 # Misc
-.git/**/.DS_Store
+.git/

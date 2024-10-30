@@ -1,0 +1,63 @@
+/* src/styles/pages/pages.css */
+
+/* Page layout utilities */
+.page-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.page-header {
+  @apply mb-8;
+}
+
+.page-title {
+  @apply text-3xl font-bold text-gray-900 mb-2;
+}
+
+.page-subtitle {
+  @apply text-lg text-gray-600;
+}
+
+/* Grid layouts */
+.grid-layout-main {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-layout-sidebar {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+/* Section styles */
+.section {
+  @apply py-12;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900 mb-6;
+}
+
+/* Hero section */
+.hero {
+  @apply bg-indigo-600 text-white py-16;
+}
+
+.hero-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Dance style specific */
+.dance-style-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.dance-style-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-200 hover:scale-105;
+}
+
+/* Events page specific */
+.events-timeline {
+  @apply space-y-6;
+}
+
+.event-card {
+  @apply bg-white rounded-lg shadow-md p-6 border-l-4 border-indigo-500;
+}

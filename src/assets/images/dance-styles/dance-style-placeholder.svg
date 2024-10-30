@@ -1,0 +1,8 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f3f4f6"/>
+  <text x="200" y="140" font-family="Arial" font-size="24" fill="#6b7280" text-anchor="middle">Dance Style Image</text>
+  <!-- Dancing couple silhouette -->
+  <path d="M180,100 Q200,80 220,100 M180,100 L180,160 M220,100 L220,160" stroke="#6b7280" stroke-width="2" fill="none"/>
+  <circle cx="180" cy="80" r="10" fill="#6b7280"/>
+  <circle cx="220" cy="80" r="10" fill="#6b7280"/>
+</svg>

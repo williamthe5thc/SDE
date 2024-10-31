@@ -1,116 +1,170 @@
 # Social Dance Effect
 
-A comprehensive web application for learning social dancing in Utah's Salt Lake Valley. Built with React, TypeScript, and Tailwind CSS.
+## Overview
 
-## Features
+Social Dance Effect (SDE) is a comprehensive platform for social dance learning and community engagement in Utah's Salt Lake Valley. The platform offers dance instruction, event management, and community features for dance enthusiasts.
 
-- **Dance Style Library**: Detailed guides for multiple dance styles including:
-  - Country Swing
-  - Latin Dances (Salsa, Bachata, Merengue)
-  - Ballroom Dances (Waltz, Foxtrot, Rumba)
-  - Line Dancing
-  - And more...
+## Quick Links
 
-- **Learning Pathways**: Structured learning paths with:
-  - Progressive skill development
-  - Video tutorials
-  - Practice guides
-  - Achievement tracking
+- [Component Documentation](./src/components/README.md)
+- [Pages Documentation](./src/pages/README.md)
+- [Utils Documentation](./src/utils/README.md)
+- [API Documentation](./src/utils/api/README.md)
 
-- **Events Management**: 
-  - Weekly dance events
-  - Class schedules
-  - Location information
-  - Rules and guidelines
+## Getting Started
 
-## Tech Stack
+### Prerequisites
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- shadcn/ui components
-- React Router
-- Lucide Icons
-
-## Prerequisites
-
-- Node.js (v16 or later)
+- Node.js (v16 or higher)
 - npm or yarn
+- Git
 
-## Installation
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/social-dance-effect.git
-cd social-dance-effect
+git clone https://github.com/williamthe5thc/SDE.git
+cd SDE
 ```
 
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Start the development server:
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
+
+4. Start development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:3000/SDE/`
+## Architecture
 
-## Project Structure
+### Tech Stack
 
-```
-sde-website/
-├── src/
-│   ├── assets/          # Images, videos, and static files
-│   ├── components/      # Reusable React components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind config
-│   ├── utils/          # Helper functions and constants
-│   └── context/        # React context providers
-├── public/             # Public assets
-└── config/             # Configuration files
-```
+- **Frontend Framework**: React with TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **State Management**: React Context + Hooks
+- **Routing**: React Router
+- **Forms**: React Hook Form + Zod
+- **Build Tool**: Vite
+- **Testing**: Jest + React Testing Library
 
-## Building for Production
+### Key Features
+
+- 🎨 Modern, responsive UI
+- 🌙 Light/dark mode
+- 🔒 Authentication system
+- 📊 Learning dashboard
+- 📅 Event management
+- 👤 User profiles
+- ⚡ Fast performance
+- ♿ Accessibility support
+
+## Development
+
+### Scripts
 
 ```bash
-npm run build
-# or
-yarn build
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+
+# Testing
+npm run test         # Run tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run tests with coverage
+
+# Linting
+npm run lint         # Run ESLint
+npm run format       # Run Prettier
+
+# Deployment
+npm run deploy       # Deploy to production
 ```
 
-The built files will be in the `dist` directory.
+### Project Structure
+
+```
+SDE/
+├── src/
+│   ├── assets/        # Static assets
+│   ├── components/    # Reusable components
+│   ├── pages/         # Page components
+│   ├── context/       # React Context providers
+│   ├── hooks/         # Custom hooks
+│   ├── styles/        # Global styles
+│   ├── types/         # TypeScript types
+│   └── utils/         # Utilities and helpers
+├── public/            # Public assets
+├── tests/             # Test files
+└── docs/             # Documentation
+```
+
+### Code Style
+
+- Follow React best practices
+- Use TypeScript for type safety
+- Follow component-based architecture
+- Write tests for components
+- Document complex features
+
+## Testing
+
+- Unit tests for components
+- Integration tests for features
+- E2E tests for critical paths
+- Accessibility testing
+- Performance testing
 
 ## Deployment
 
-The project is configured for GitHub Pages deployment:
+1. Build the application:
+```bash
+npm run build
+```
 
+2. Deploy to hosting:
 ```bash
 npm run deploy
-# or
-yarn deploy
 ```
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+### Guidelines
+
+- Follow the existing code style
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation
+- Keep PRs focused and manageable
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- GitHub Issues: [Report a bug](https://github.com/williamthe5thc/SDE/issues)
+- Email: [support@socialdanceeffect.com](mailto:support@socialdanceeffect.com)
 
 ## Acknowledgments
 
-- shadcn/ui for the component library
-- Lucide for the icons
-- Tailwind Labs for the CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) for UI components
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Lucide](https://lucide.dev/) for icons
+
+## Roadmap
+
+See our [project board](https://github.com/williamthe5thc/SDE/projects) for planned features and enhancements.

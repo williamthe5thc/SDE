@@ -13,6 +13,8 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@context': path.resolve(__dirname, './src/context'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@types': path.resolve(__dirname, './src/types'),
       '@assets': path.resolve(__dirname, './src/assets')
     }
   },
@@ -23,7 +25,14 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-slot', '@radix-ui/react-tabs'],
+          'ui-vendor': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-slot',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-toast',
+            '@radix-ui/react-avatar'
+          ],
+          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
           'styles': ['tailwind-merge', 'class-variance-authority', 'clsx']
         }
       }

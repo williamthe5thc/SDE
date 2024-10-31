@@ -19,13 +19,17 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@context/*": ["./src/context/*"],
+      "@types/*": ["./src/types/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"]
     },
-    "types": ["vite/client"],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
-    ]
+    "types": ["vite/client"]  // Removed test types from here
   },
   "include": [
     "src/**/*.ts",

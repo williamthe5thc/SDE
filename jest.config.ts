@@ -1,5 +1,7 @@
-//jest.config.js
-export default {
+// jest.config.ts
+import type { Config } from 'jest';
+
+const config: Config = {
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
@@ -33,4 +35,9 @@ export default {
       statements: 70,
     },
   },
-}
+  verbose: true,
+  testTimeout: 10000,
+  clearMocks: true,
+};
+
+export default config;

@@ -1,132 +1,121 @@
-// src/pages/dance-styles/dance-style-page.tsx
+// src/pages/dance-styles/country-swing/country-swing-page.tsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { SEO } from '@/components/common/SEO';
-import TutorialPlayer from '@/components/dance-styles/TutorialPlayer';
-import PracticeGuide from '@/components/dance-styles/PracticeGuide';  // Changed from { PracticeGuide 
+import BaseDanceStyle from '@/components/dance-styles/BaseDanceStyle';
+import { PlayCircle } from 'lucide-react';
 
-import { useGlobalContext } from '@/context/GlobalContext';
-import { DanceData, Level, Tutorial, PracticeStep } from '@/types/dance';
-
-interface DanceStyleData {
-  name: string;
-  description: string;
-  history: string;
-  difficulty: string;
-  videoUrl: string;
-  practiceSteps: {
-    title: string;
-    description: string;
-    steps: string[];  // Changed this to match PracticeStep interface
-  }[];
-}
-
-const DanceStylePage = () => {
-  const { styleId } = useParams<{ styleId: string }>();
-  const { state } = useGlobalContext();
-
-  const danceStyleData: DanceStyleData = {
-    name: 'Salsa',
-    description: 'A vibrant Latin dance characterized by quick steps and hip movements.',
-    history: 'Salsa emerged from Cuban and Puerto Rican dance traditions...',
-    difficulty: 'Intermediate',
-    videoUrl: '/assets/videos/tutorials/salsa-basics.mp4',
-    practiceSteps: [
-      {
-        title: 'Basic Step Pattern',
-        description: 'Learn the fundamental 8-count basic step pattern.',
-        steps: [  // Changed from tips to steps
-          'Keep your weight forward',
-          'Maintain a slight bend in your knees',
-          'Practice with and without music',
-        ],
-      },
+const countrySwingData = {
+  title: "Country Swing",
+  description: "A lively, energetic partner dance that combines elements of swing dancing with country western style.",
+  history: `Country Swing evolved from traditional swing dancing in the American West, 
+    adapting to country western music and culture. It's characterized by its quick tempo, 
+    dynamic turns, and playful nature. Popular in western dance venues and country bars, 
+    it maintains the core principles of swing dancing while incorporating unique elements 
+    that suit country music's rhythm and style.`,
+  videoTutorials: {
+    beginner: [
+      { id: 1, title: "Basic 6-Count Pattern", duration: "5:30" },
+      { id: 2, title: "Inside Turn Basics", duration: "6:15" },
+      { id: 3, title: "Outside Turn Fundamentals", duration: "5:45" }
+    ],
+    intermediate: [
+      { id: 4, title: "Sugar Push Variations", duration: "7:30" },
+      { id: 5, title: "Multiple Turn Combinations", duration: "8:15" },
+      { id: 6, title: "Dips and Leans", duration: "7:45" }
+    ],
+    advanced: [
+      { id: 7, title: "Advanced Turn Patterns", duration: "9:30" },
+      { id: 8, title: "Aerial Moves and Lifts", duration: "10:15" },
+      { id: 9, title: "Performance Combinations", duration: "11:00" }
     ]
-  };
+  },
+  basicPatterns: [
+    {
+      name: "Basic 6-Count",
+      counts: "1-2-3-4-5-6",
+      description: "Foundation pattern for country swing",
+      steps: [
+        "Rock step back on 1-2",
+        "Triple step on 3&4",
+        "Triple step on 5&6",
+        "Maintain frame throughout"
+      ]
+    },
+    {
+      name: "Inside Turn",
+      counts: "1-2-3-4-5-6",
+      description: "Basic right-hand turn for follower",
+      steps: [
+        "Lead: Basic footwork, guide turn",
+        "Follow: Right turn under joined hands",
+        "Both: Complete triple steps",
+        "Return to basic position"
+      ]
+    }
+  ],
+  musicality: {
+    rhythmPatterns: [
+      {
+        name: "Basic Rhythm",
+        pattern: "1-2-3&4-5&6",
+        description: "Standard 6-count pattern with triple steps"
+      },
+      {
+        name: "Slow Rhythm",
+        pattern: "1-2-3-4-5-6",
+        description: "Modified pattern for slower songs"
+      }
+    ],
+    recommendedSongs: [
+      {
+        title: "Boot Scootin' Boogie",
+        artist: "Brooks & Dunn",
+        tempo: "Medium-Fast",
+        style: "Traditional"
+      },
+      {
+        title: "Save a Horse (Ride a Cowboy)",
+        artist: "Big & Rich",
+        tempo: "Fast",
+        style: "Modern"
+      }
+    ]
+  },
+  partnerWork: {
+    lead: [
+      "Maintain clear frame",
+      "Lead with body movement",
+      "Provide clear directional cues",
+      "Control momentum and speed"
+    ],
+    follow: [
+      "Stay connected through frame",
+      "Complete each pattern fully",
+      "Maintain balanced position",
+      "Match leader's energy"
+    ]
+  },
+  theme: {
+    primary: "amber-800",
+    secondary: "amber-600",
+    accent: "amber"
+  }
+};
 
+const CountrySwingPage = () => {
   return (
-    <>
-      <SEO 
-        title={`Learn ${danceStyleData.name} - The Social Dance Effect`}
-        description={danceStyleData.description}
-      />
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {danceStyleData.name}
-          </h1>
-          <p className="text-xl">{danceStyleData.description}</p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-xl font-bold mb-4">Quick Info</h2>
-              <dl className="space-y-4">
-                <div>
-                  <dt className="text-gray-600">Difficulty</dt>
-                  <dd className="font-medium">{danceStyleData.difficulty}</dd>
-                </div>
-                <div>
-                  <dt className="text-gray-600">Next Class</dt>
-                  <dd className="font-medium">Tuesday, 7:00 PM</dd>
-                </div>
-                <div>
-                  <dt className="text-gray-600">Location</dt>
-                  <dd className="font-medium">Main Studio - Provo</dd>
-                </div>
-              </dl>
-              <button className="w-full mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Register for Class
-              </button>
-            </div>
-          </div>
-
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* Video Tutorial */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">Learn the Basics</h2>
-              <TutorialPlayer
-                videoUrl={danceStyleData.videoUrl}
-                title="Introduction to Salsa"
-                description="Get started with the fundamental steps and movements of Salsa dancing."
-                timestamps={[
-                  { time: 0, label: 'Introduction' },
-                  { time: 120, label: 'Basic Step Pattern' },
-                  { time: 300, label: 'Leading and Following' },
-                ]}
-              />
-            </section>
-
-            {/* Practice Guide */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">Practice Guide</h2>
-             <PracticeGuide
-  title={`${danceStyleData.name} Practice Guide`}  // Use title instead of danceStyle
-  difficulty="Beginner"                            // Use difficulty instead of level
-  steps={danceStyleData.practiceSteps}
-/>
-            </section>
-
-            {/* History Section */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">History & Background</h2>
-              <div className="prose max-w-none">
-                <p>{danceStyleData.history}</p>
-              </div>
-            </section>
-          </div>
-        </div>
+    <BaseDanceStyle data={countrySwingData}>
+      {/* Add any country swing specific content here */}
+      <div className="mt-8 bg-amber-50 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold mb-4">Why Country Swing?</h3>
+        <ul className="space-y-2">
+          <li>✓ Easy to learn basic steps</li>
+          <li>✓ Great workout and cardio</li>
+          <li>✓ Vibrant social dance community</li>
+          <li>✓ Works with modern country music</li>
+        </ul>
       </div>
-    </>
+    </BaseDanceStyle>
   );
 };
 
-export default DanceStylePage;
+export default CountrySwingPage;

@@ -1,32 +1,6 @@
-import React, { useState } from 'react';
-import { 
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger 
-} from "@/components/ui/tabs";
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { 
-  BookOpen, 
-  Video, 
-  Music, 
-  Users, 
-  Grid,
-  PlayCircle,
-  Download,
-  ArrowRight,
-  ArrowLeft,
-  ArrowUp,
-  ArrowDown
-} from 'lucide-react';
-import {FormationDisplayProps, DanceData, Level, Tutorial } from '@/types/dance';
+// src/pages/dance-styles/line-dancing/line-dancing-page.tsx
+import React from 'react';
+import BaseDanceStyle from '@/components/dance-styles/BaseDanceStyle';
 
 const lineDancingData = {
   title: "Line Dancing",
@@ -50,268 +24,84 @@ const lineDancingData = {
       { id: 7, title: "Complex Line Dance Combinations", duration: "13:45" }
     ]
   },
-  commonDances: [
+  basicPatterns: [
     {
-      name: "Electric Slide",
-      difficulty: "Beginner",
-      steps: "32 counts",
-      description: "Classic line dance perfect for beginners"
-    },
-    {
-      name: "Boot Scootin' Boogie",
-      difficulty: "Beginner-Intermediate",
-      steps: "32 counts",
-      description: "Popular country-western line dance"
-    },
-    {
-      name: "Copperhead Road",
-      difficulty: "Intermediate",
-      steps: "48 counts",
-      description: "High-energy dance with kicks and turns"
-    },
-    {
-      name: "Tush Push",
-      difficulty: "Intermediate",
-      steps: "40 counts",
-      description: "Smooth dance with hip movements"
-    }
-  ],
-  practiceExercises: [
-    {
-      title: "Basic Step Combinations",
-      description: "Practice fundamental step patterns",
+      name: "Grapevine",
+      counts: "1-2-3-4",
+      description: "Basic side-stepping pattern",
       steps: [
-        "Grapevine right and left",
-        "Forward and back basic steps",
-        "Quarter turns in place",
-        "Heel and toe combinations"
+        "Step right with right foot",
+        "Cross left behind right",
+        "Step right with right foot",
+        "Touch left next to right"
       ]
     },
     {
-      title: "Formation Practice",
-      description: "Learn proper line positioning",
+      name: "Basic Shuffle",
+      counts: "1&2",
+      description: "Triple step movement",
       steps: [
-        "Practice maintaining line spacing",
-        "Work on staying in your 'lane'",
-        "Practice turning while maintaining position",
-        "Learn to adjust spacing during movement"
+        "Step forward right",
+        "Step left next to right",
+        "Step forward right again",
+        "Repeat with left foot"
       ]
     }
   ],
-  musicSuggestions: [
-    { title: "Achy Breaky Heart", artist: "Billy Ray Cyrus", bpm: 120 },
-    { title: "Cotton Eye Joe", artist: "Rednex", bpm: 134 },
-    { title: "Copperhead Road", artist: "Steve Earle", bpm: 128 },
-    { title: "Electric Slide", artist: "Marcia Griffiths", bpm: 118 }
-  ],
-  floorFormations: [
-    {
-      name: "Standard Lines",
-      description: "Typical formation with equal spacing",
-      pattern: [
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1]
-      ]
-    },
-    {
-      name: "Staggered Lines",
-      description: "Offset formation for better visibility",
-      pattern: [
-        [0, 1, 1, 1, 0],
-        [1, 1, 1, 1, 1],
-        [0, 1, 1, 1, 0]
-      ]
-    }
-  ]
+  musicality: {
+    rhythmPatterns: [
+      {
+        name: "4/4 Time",
+        pattern: "1-2-3-4",
+        description: "Basic 4-count rhythm"
+      }
+    ],
+    recommendedSongs: [
+      {
+        title: "Electric Slide",
+        artist: "Marcia Griffiths",
+        tempo: "Medium",
+        style: "Classic"
+      },
+      {
+        title: "Achy Breaky Heart",
+        artist: "Billy Ray Cyrus",
+        tempo: "Medium",
+        style: "Country"
+      }
+    ]
+  },
+  theme: {
+    primary: "blue-900",
+    secondary: "blue-600",
+    accent: "blue"
+  }
 };
 
 const LineDancingPage = () => {
-  const [selectedLevel, setSelectedLevel] = useState<Level>('beginner');
-
-  const FormationDisplay: React.FC<FormationDisplayProps> = ({ pattern }) => (
-  <div className="grid gap-2">
-    {pattern.map((row: number[], rowIndex: number) => (
-      <div key={rowIndex} className="flex justify-center gap-2">
-        {row.map((cell: number, cellIndex: number) => (
-          <div key={cellIndex} className={`w-8 h-8 rounded-full ${cell ? 'bg-blue-600' : 'bg-gray-200'}`}>
-            {cell ? <Users className="w-4 h-4 text-white" /> : null}
-          </div>
-        ))}
-      </div>
-    ))}
-  </div>
-);
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-blue-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">{lineDancingData.title}</h1>
-          <p className="text-xl mb-6">{lineDancingData.description}</p>
-          <Button className="bg-white text-blue-900 hover:bg-blue-50">
-            Start Learning
-          </Button>
+    <BaseDanceStyle data={lineDancingData}>
+      <div className="mt-8 bg-blue-50 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold mb-4">Popular Line Dances</h3>
+        <div className="grid gap-4">
+          <div className="p-4 border border-blue-200 rounded">
+            <h4 className="font-semibold">Electric Slide</h4>
+            <p className="text-sm text-gray-600">32 counts • Beginner Level</p>
+            <p className="mt-2">Classic line dance perfect for beginners</p>
+          </div>
+          <div className="p-4 border border-blue-200 rounded">
+            <h4 className="font-semibold">Boot Scootin' Boogie</h4>
+            <p className="text-sm text-gray-600">32 counts • Beginner-Intermediate</p>
+            <p className="mt-2">Popular country-western line dance</p>
+          </div>
+          <div className="p-4 border border-blue-200 rounded">
+            <h4 className="font-semibold">Copperhead Road</h4>
+            <p className="text-sm text-gray-600">48 counts • Intermediate</p>
+            <p className="mt-2">High-energy dance with kicks and turns</p>
+          </div>
         </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="overview" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6 gap-2">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="tutorials">Tutorials</TabsTrigger>
-            <TabsTrigger value="dances">Popular Dances</TabsTrigger>
-            <TabsTrigger value="practice">Practice</TabsTrigger>
-            <TabsTrigger value="music">Music</TabsTrigger>
-            <TabsTrigger value="formations">Formations</TabsTrigger>
-          </TabsList>
-
-          {/* Overview Tab */}
-          <TabsContent value="overview">
-            <Card>
-              <CardHeader>
-                <CardTitle>About Line Dancing</CardTitle>
-                <CardDescription>History and Background</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  {lineDancingData.history}
-                </p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Tutorials Tab */}
-          <TabsContent value="tutorials">
-            <div className="space-y-6">
-              <div className="flex gap-4 mb-6">
-                <Button 
-                  variant={selectedLevel === 'beginner' ? 'default' : 'outline'}
-                  onClick={() => setSelectedLevel('beginner')}
-                >
-                  Beginner
-                </Button>
-                <Button 
-                  variant={selectedLevel === 'intermediate' ? 'default' : 'outline'}
-                  onClick={() => setSelectedLevel('intermediate')}
-                >
-                  Intermediate
-                </Button>
-                <Button 
-                  variant={selectedLevel === 'advanced' ? 'default' : 'outline'}
-                  onClick={() => setSelectedLevel('advanced')}
-                >
-                  Advanced
-                </Button>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                {lineDancingData.videoTutorials[selectedLevel].map((tutorial) => (
-                  <Card key={tutorial.id}>
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-4">
-                        <PlayCircle className="w-10 h-10 text-blue-600" />
-                        <div>
-                          <h3 className="font-semibold">{tutorial.title}</h3>
-                          <p className="text-sm text-gray-600">Duration: {tutorial.duration}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Popular Dances Tab */}
-          <TabsContent value="dances">
-            <div className="grid md:grid-cols-2 gap-6">
-              {lineDancingData.commonDances.map((dance, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle>{dance.name}</CardTitle>
-                    <CardDescription>{dance.difficulty} • {dance.steps}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{dance.description}</p>
-                    <Button variant="ghost" className="mt-4">
-                      Learn Dance <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Practice Tab */}
-          <TabsContent value="practice">
-            <div className="grid md:grid-cols-2 gap-6">
-              {lineDancingData.practiceExercises.map((exercise, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{exercise.title}</CardTitle>
-                    <CardDescription>{exercise.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="list-disc pl-4 space-y-2">
-                      {exercise.steps.map((step, stepIndex) => (
-                        <li key={stepIndex}>{step}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Music Tab */}
-          <TabsContent value="music">
-            <Card>
-              <CardHeader>
-                <CardTitle>Recommended Music</CardTitle>
-                <CardDescription>Popular songs for line dancing</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {lineDancingData.musicSuggestions.map((song, index) => (
-                    <div key={index} className="flex items-center justify-between p-2 border-b">
-                      <div>
-                        <h3 className="font-semibold">{song.title}</h3>
-                        <p className="text-sm text-gray-600">{song.artist}</p>
-                      </div>
-                      <div className="text-sm text-gray-600">
-                        {song.bpm} BPM
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Formations Tab */}
-          <TabsContent value="formations">
-            <div className="grid md:grid-cols-2 gap-6">
-              {lineDancingData.floorFormations.map((formation, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle>{formation.name}</CardTitle>
-                    <CardDescription>{formation.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-center py-6">
-                      <FormationDisplay pattern={formation.pattern} />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
       </div>
-    </div>
+    </BaseDanceStyle>
   );
 };
 

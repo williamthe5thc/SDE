@@ -1,140 +1,164 @@
+// src/pages/dance-styles/cha-cha/cha-cha-page.tsx
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import TutorialPlayer from '@/components/dance-styles/TutorialPlayer';
-import PracticeGuide from '@/components/dance-styles/PracticeGuide';
-import StyleOverview from '@/components/dance-styles/StyleOverview';
-import { DanceData, Level, Tutorial } from '@/types/dance';
+import BaseDanceStyle from '@/components/dance-styles/BaseDanceStyle';
 
-const ChaChaPage: React.FC = () => {
-  const chachaData = {
-    styleName: "Cha Cha",
-    description: "The Cha Cha is a lively, flirtatious dance with Cuban origins, known for its distinctive rhythm and charismatic steps.",
-    history: {
-      origin: "The Cha Cha originated in Cuba in the early 1950s.",
-      evolution: "Developed from the Danzón-Mambo, becoming a distinct style by the mid-1950s.",
-      significance: "Known for its sharp steps and energetic turns, making it popular in both social and competitive dancing."
+const chaChaData = {
+  title: "Cha-Cha",
+  description: "A lively, syncopated Latin dance characterized by its distinctive 'cha-cha-cha' rhythm and Cuban motion. Popular for its playful character and energetic movements.",
+  history: `The Cha-Cha developed in Cuba in the early 1950s, evolving from the Danzón-Mambo. 
+    Dance instructor Enrique Jorrín noticed his students had difficulty with the syncopated rhythms 
+    of the Mambo and created a simpler rhythm they could follow more easily. The name came from the 
+    sound of dancers' feet shuffling during the triple step, and the dance quickly became popular 
+    worldwide for its energetic and flirtatious character.`,
+  videoTutorials: {
+    beginner: [
+      { id: 1, title: "Basic Step & Timing", duration: "5:30" },
+      { id: 2, title: "Cuban Motion Basics", duration: "6:15" },
+      { id: 3, title: "Basic Turns & Underarm Turns", duration: "7:00" },
+      { id: 4, title: "Check Steps", duration: "5:45" }
+    ],
+    intermediate: [
+      { id: 5, title: "New York Walks", duration: "8:30" },
+      { id: 6, title: "Spot Turn Variations", duration: "7:45" },
+      { id: 7, title: "Hand to Hand", duration: "8:15" }
+    ],
+    advanced: [
+      { id: 8, title: "Advanced Turn Patterns", duration: "9:30" },
+      { id: 9, title: "Complex Combinations", duration: "10:15" },
+      { id: 10, title: "Performance Styling", duration: "11:00" }
+    ]
+  },
+  basicPatterns: [
+    {
+      name: "Basic Step",
+      counts: "2-3-4&1",
+      description: "Foundation pattern of Cha-Cha",
+      steps: [
+        "Rock step forward (2)",
+        "Recover back (3)",
+        "Cha-cha-cha in place (4&1)",
+        "Add Cuban motion throughout"
+      ]
     },
-    basicSteps: [
+    {
+      name: "New York",
+      counts: "2-3-4&1",
+      description: "Side step with opening action",
+      steps: [
+        "Break forward/back (2)",
+        "Recover (3)",
+        "Side cha-cha-cha (4&1)",
+        "Open to face partner's direction"
+      ]
+    },
+    {
+      name: "Spot Turn",
+      counts: "2-3-4&1",
+      description: "Turn in place",
+      steps: [
+        "Forward checking action (2)",
+        "Recover turning (3)",
+        "Complete turn with cha-cha-cha (4&1)",
+        "Maintain Cuban motion through turn"
+      ]
+    }
+  ],
+  musicality: {
+    rhythmPatterns: [
       {
-        name: "Basic Step",
-        description: "The foundational Cha Cha step pattern",
-        keyPoints: [
-          "Start with feet together",
-          "Step left foot forward",
-          "Replace weight to right foot",
-          "Cha-cha-cha (three quick steps in place)",
-          "Repeat in opposite direction"
-        ]
+        name: "Basic Rhythm",
+        pattern: "2-3-4&1",
+        description: "Standard Cha-Cha timing"
       },
       {
-        name: "Side Basic",
-        description: "The basic step performed moving sideways",
-        keyPoints: [
-          "Step left foot to side",
-          "Replace weight to right foot",
-          "Cha-cha-cha to the side",
-          "Repeat in opposite direction"
-        ]
+        name: "Guapacha",
+        pattern: "2-3-4(pause)1",
+        description: "Syncopated timing variation"
       }
     ],
-    tutorials: [
+    recommendedSongs: [
       {
-        title: "Basic Steps",
-        videoUrl: "/tutorials/chacha/basic.mp4",
-        timestamps: [
-          { time: 0, label: "Introduction" },
-          { time: 90, label: "Basic Step" },
-          { time: 225, label: "Side Basic" }
-        ],
-        keyPoints: [
-          "Keep your upper body still",
-          "Focus on hip movement",
-          "Maintain proper timing"
-        ]
-      }
-    ],
-    practiceGuides: [
+        title: "Oye Como Va",
+        artist: "Tito Puente",
+        tempo: "Medium",
+        style: "Traditional"
+      },
       {
-        title: "Beginner Practice Routine",
-        difficulty: "Beginner",
-        steps: [
-          "Practice basic timing without steps",
-          "Add basic step in place",
-          "Practice side basic",
-          "Combine movements"
-        ],
-        tips: [
-          "Count out loud: 1-2-3-cha-cha",
-          "Practice with music at slower tempo first",
-          "Focus on smooth weight transfers"
-        ]
+        title: "Sway",
+        artist: "Michael Bublé",
+        tempo: "Medium",
+        style: "Modern"
+      },
+      {
+        title: "Love and Dancing",
+        artist: "Enrique Iglesias",
+        tempo: "Medium-Fast",
+        style: "Contemporary"
       }
-    ],
-    commonMistakes: [
-      "Rushing the cha-cha-cha steps",
-      "Not transferring weight properly",
-      "Forgetting hip movement",
-      "Looking down at feet"
     ]
-  };
+  },
+  partnerWork: {
+    lead: [
+      "Lead with clear intention",
+      "Maintain frame while moving",
+      "Guide partner through turns",
+      "Keep timing precise",
+      "Show character and style"
+    ],
+    follow: [
+      "Stay connected through frame",
+      "Complete each movement fully",
+      "Maintain Cuban motion",
+      "Match leader's energy",
+      "Express musicality independently"
+    ]
+  },
+  theme: {
+    primary: "pink-900",
+    secondary: "pink-600",
+    accent: "pink"
+  }
+};
 
+const ChaChaPage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">{chachaData.styleName}</h1>
-        <p className="text-lg text-gray-600">{chachaData.description}</p>
+    <BaseDanceStyle data={chaChaData}>
+      <div className="mt-8 bg-pink-50 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold mb-4">Key Technical Elements</h3>
+        <div className="grid gap-4">
+          <div className="p-4 border border-pink-200 rounded">
+            <h4 className="font-semibold">Cuban Motion</h4>
+            <ul className="list-disc pl-4 mt-2">
+              <li>Hip movement through straight legs</li>
+              <li>Weight transfers create natural motion</li>
+              <li>Movement initiates from the floor</li>
+              <li>Maintain level shoulders</li>
+              <li>Compact, controlled hip action</li>
+            </ul>
+          </div>
+          <div className="p-4 border border-pink-200 rounded">
+            <h4 className="font-semibold">Cha-Cha-Cha Rhythm</h4>
+            <ul className="list-disc pl-4 mt-2">
+              <li>Crisp, precise timing</li>
+              <li>Sharp, quick triple step</li>
+              <li>Clear weight changes</li>
+              <li>Maintain consistent tempo</li>
+              <li>Energy on the "cha-cha-cha"</li>
+            </ul>
+          </div>
+          <div className="p-4 border border-pink-200 rounded">
+            <h4 className="font-semibold">Dance Character</h4>
+            <ul className="list-disc pl-4 mt-2">
+              <li>Playful and flirtatious</li>
+              <li>Sharp, precise movements</li>
+              <li>Compact steps</li>
+              <li>Strong musical connection</li>
+              <li>Energetic expression</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-8">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="tutorials">Tutorials</TabsTrigger>
-          <TabsTrigger value="practice">Practice Guide</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="overview">
-          <StyleOverview
-            history={chachaData.history}
-            basicSteps={chachaData.basicSteps}
-            commonMistakes={chachaData.commonMistakes}
-          />
-        </TabsContent>
-
-        <TabsContent value="tutorials">
-          <div className="space-y-8">
-            {chachaData.tutorials.map((tutorial, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <TutorialPlayer
-  videoUrl={tutorial.videoUrl}
-  title={tutorial.title}
-  description="Learn the basic patterns and techniques"  // Just provide a static description since it's not in data
-  timestamps={tutorial.timestamps}
-/>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-
-        <TabsContent value="practice">
-          <div className="space-y-6">
-            {chachaData.practiceGuides.map((guide, index) => (
-              <PracticeGuide
-  title={guide.title}
-  steps={guide.steps.map(step => ({
-    title: step,
-    description: step,
-    steps: [step]
-  }))}
-  difficulty={guide.difficulty}
-/>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
-    </div>
+    </BaseDanceStyle>
   );
 };
 

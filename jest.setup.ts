@@ -1,5 +1,6 @@
 // jest.setup.ts
 import '@testing-library/jest-dom';
+import 'whatwg-fetch';  // Add fetch polyfill
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -31,12 +32,3 @@ window.ResizeObserver = jest.fn().mockImplementation(() => ({
   unobserve: jest.fn(),
   disconnect: jest.fn(),
 }));
-
-// Suppress React 18 console errors/warnings
-const originalError = console.error;
-console.error = (...args) => {
-  if (/Warning.*not wrapped in act/.test(args[0])) {
-    return;
-  }
-  originalError.call(console, ...args);
-};

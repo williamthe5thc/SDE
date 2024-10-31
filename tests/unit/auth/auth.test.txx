@@ -106,3 +106,24 @@ describe('Authentication Flow', () => {
     });
   });
 });
+interface AuthContextType {
+  state: AuthState;
+  dispatch: React.Dispatch<AuthAction>;
+  login: (credentials: LoginCredentials) => Promise<void>;
+  logout: () => void;
+  user: User | null;
+}
+
+const initialState: AuthState = {
+  user: null,
+  isAuthenticated: false,
+  token: null,
+};
+
+export const AuthContext = React.createContext<AuthContextType>({
+  state: initialState,
+  dispatch: () => null,
+  login: async () => {},
+  logout: () => {},
+  user: null,
+});

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { StyleOverview } from '@/components/dance-styles/StyleOverview';
-import { TutorialPlayer } from '@/components/dance-styles/TutorialPlayer';
+import TutorialPlayer from '@/components/dance-styles/TutorialPlayer';
 
 describe('UI Components', () => {
   describe('Card Component', () => {

@@ -109,13 +109,14 @@ export const Header = () => {
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full"
-            >
-              {state.theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-            </Button>
+  variant="ghost"
+  size="icon"
+  onClick={toggleTheme}
+  className="rounded-full"
+  aria-label="Toggle theme"
+>
+  {state.theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+</Button>
             
             {state.isAuthenticated ? (
               <Button variant="outline" className="flex items-center gap-2">
@@ -131,18 +132,15 @@ export const Header = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="rounded-full"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <Menu className="h-5 w-5" />
-                )}
-              </Button>
+           <Button
+  variant="ghost"
+  size="icon"
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  className="rounded-full"
+  aria-label="Toggle menu"
+>
+  {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+</Button>
             </div>
           </div>
         </div>

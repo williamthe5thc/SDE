@@ -1,0 +1,20 @@
+//test-utils.tsx
+import React from 'react';
+import { render as rtlRender } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { GlobalContextProvider } from '@/context/GlobalContext';
+
+function render(ui: React.ReactElement, { route = '/' } = {}) {
+  window.history.pushState({}, 'Test page', route);
+
+  return rtlRender(
+    <GlobalContextProvider>
+      <BrowserRouter>
+        {ui}
+      </BrowserRouter>
+    </GlobalContextProvider>
+  );
+}
+
+export * from '@testing-library/react';
+export { render };

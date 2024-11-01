@@ -62,10 +62,22 @@ export interface PracticeGuideProps {
   difficulty?: string;
 }
 
-// Base Dance Data Structure
+export interface DancePattern {
+  name: string;
+  counts: string;
+  description: string;
+  steps: string[];
+}
+
 export interface DanceData {
   title: string;
   description: string;
   history: string;
   videoTutorials: VideoTutorials;
+  basicPatterns: DancePattern[];
+  theme: {
+    primary: string;
+    secondary: string;
+    accent: string;
+  };
 }
